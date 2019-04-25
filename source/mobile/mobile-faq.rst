@@ -124,7 +124,7 @@ For a more specific example of how to use this feature, see the following sectio
 How do I pre-configure the server URL for my users?
 ----------------------------------------------------
 
-You can pre-configure the server URL and other settings by overriding default config.json settings and building the mobile apps yourself.
+You can pre-configure the server URL and other settings by overriding default ''config.json'' settings and building the mobile apps yourself.
 
 1. Fork the `mattermost-mobile repository <https://github.com/mattermost/mattermost-mobile>`__. 
 2. Create the file ``/assets/override/config.json`` in your forked mattermost-mobile repository.
