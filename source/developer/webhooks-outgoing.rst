@@ -28,16 +28,16 @@ Suppose you want to write an external application, which executes software tests
 
 You can follow these general guidelines to set up a Mattermost outgoing webhook for your application.
 
-1 - First, go to **Main Menu > Integrations > Outgoing Webhook**. If you don't have the **Integrations** option in your Main Menu, outgoing webhooks may not be enabled on your Mattermost server or may be disabled for non-admins. Enable them from **System Console > Integrations > Custom Integrations** or ask your System Administrator to do so.
+1. First, go to **Main Menu > Integrations > Outgoing Webhook**. If you don't have the **Integrations** option in your Main Menu, outgoing webhooks may not be enabled on your Mattermost server or may be disabled for non-admins. Enable them from **System Console > Integrations > Custom Integrations** or ask your System Administrator to do so.
 
-2 - Click **Add Outgoing Webhook** and add name and description for the webhook. The description can be up to 500 characters. 
+2. Click **Add Outgoing Webhook** and add name and description for the webhook. The description can be up to 500 characters. 
 
-3 - Choose the content type by which the request will be sent.
+3. Choose the content type by which the request will be sent.
 
  - If ``application/x-www-form-urlencoded`` is chosen, the server will encode the parameters in a URL format in the request body.
  - If ``application/json`` is chosen, the server will format the request body as JSON.
 
-4 - Select the public channel to receive webhook responses, or specify one or more trigger words that send an HTTP POST request to your application. You may configure either the channel or the trigger words for the outgoing webhook, or both. If both are specified, then the message must match both values.
+4. Select the public channel to receive webhook responses, or specify one or more trigger words that send an HTTP POST request to your application. You may configure either the channel or the trigger words for the outgoing webhook, or both. If both are specified, then the message must match both values.
 
 In our example, we would set the channel to ``town-square`` and specify ``#build`` as the trigger word.
 
@@ -46,19 +46,19 @@ In our example, we would set the channel to ``town-square`` and specify ``#build
     
     Similarly, if you don't specify trigger words, then the webhook will respond to all messages in the selected public channel.
 
-5 - If you specified one or more trigger words on the previous step, choose when to trigger the outgoing webhook.
+5. If you specified one or more trigger words on the previous step, choose when to trigger the outgoing webhook.
 
  - If the first word of a message matches one of the trigger words exactly, or
  - If the first word of a message starts with one of the trigger words.
 
-6 - Finally, set one or more callback URLs that HTTP POST requests will be sent to, and hit **Save**. If the URL is private, add it as a `trusted internal connection <https://about.mattermost.com/default-allow-internal-connections-settings-documentation/>`__.
+6. Finally, set one or more callback URLs that HTTP POST requests will be sent to, and hit **Save**. If the URL is private, add it as a `trusted internal connection <https://about.mattermost.com/default-allow-internal-connections-settings-documentation/>`__.
 
-7 - On the next page, copy the **Token** value. This will be used in a later step.
+7. On the next page, copy the **Token** value. This will be used in a later step.
 
 .. image:: ../images/outgoing_webhooks_token.png
   :width: 500 px
 
-8 - Next, write your external application. Include a function, which receives HTTP POST requests from Mattermost. The function should look something like this:
+8. Next, write your external application. Include a function, which receives HTTP POST requests from Mattermost. The function should look something like this:
 
     .. code-block:: text
 
@@ -82,9 +82,9 @@ In our example, we would set the channel to ``town-square`` and specify ``#build
 
 If your integration sends back a JSON response, make sure it returns the ``application/json`` content-type.
 
-9 - Add a configurable *MATTERMOST_TOKEN* variable to your application and set it to the **Token** value from step 7. This value will be used by your application to confirm the HTTP POST request came from Mattermost.
+9. Add a configurable *MATTERMOST_TOKEN* variable to your application and set it to the **Token** value from step 7. This value will be used by your application to confirm the HTTP POST request came from Mattermost.
 
-10 - To have your application post a message back to ``town-square``, it can respond to the HTTP POST request with a JSON response such as:
+10. To have your application post a message back to ``town-square``, it can respond to the HTTP POST request with a JSON response such as:
 
 .. code-block:: text
 
@@ -100,7 +100,7 @@ which would render in Mattermost as:
 
 .. image:: ../images/webhooksTable.PNG
 
-11 - You're all set! See `developer documentation <https://developers.mattermost.com/integrate/outgoing-webhooks/>`__ for details on what parameters are supported by outgoing webhooks. For instance, you can override the username and profile picture the messages post as, or specify a custom post type when sending a webhook message for use by `plugins <https://about.mattermost.com/default-plugins>`__.
+11. You're all set! See `developer documentation <https://developers.mattermost.com/integrate/outgoing-webhooks/>`__ for details on what parameters are supported by outgoing webhooks. For instance, you can override the username and profile picture the messages post as, or specify a custom post type when sending a webhook message for use by `plugins <https://about.mattermost.com/default-plugins>`__.
 
 Messages with advanced formatting can be created by including an :doc:`attachment array <message-attachments>` and :doc:`interactive message buttons <interactive-messages>` in the JSON payload.
 
