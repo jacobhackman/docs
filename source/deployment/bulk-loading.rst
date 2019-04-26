@@ -12,13 +12,13 @@ You can import the following data types:
 - Teams
 - Channels (Public & Private)
 - Users
-- Users' Team memberships
-- Users' Channel memberships
-- Users' notification preferences
+- User Team memberships
+- User Channel memberships
+- User notification preferences
 - Posts (regular, non-reply posts)
-- Posts' Replies
-- Posts' Reactions
-- Posts' File Attachments
+- Post Replies
+- Post Reactions
+- Post File Attachments
 - Direct Message and Group Message channels
 - Direct Messages and Group Messages
 - Permissions Schemes
